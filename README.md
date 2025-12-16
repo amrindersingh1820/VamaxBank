@@ -107,14 +107,18 @@ Validate: Click "Validate Chain" to run a security check on the ledger integrity
 ###🛡️ License
 This project is for educational purposes only. It is a proof-of-concept for integrating C/C++ legacy systems with modern web technologies.
 
-###Built with ❤️ by 
+### Built with ❤️ by 
+```
 Amrinder Singh
 Devang Bhatt
 Garvit Joshi
-Rohit Bhist 
-###GitHub
-amrindersingh1820
-Devang-Bhatt
+Rohit Bhist
+``` 
+### GitHub
+```
+amrindersingh1820(https://github.com/amrindersingh1820)
+Devang-Bhatt(https://github.com/Devang-Bhatt)
 ----------
 --------
+```
 

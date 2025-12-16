@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Bank</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="auth-view">
+    <header class="auth-header">
+        <div class="logo">
+            <i class="fas fa-shield-alt"></i> VALMAX BANK
+        </div>
+    </header>
+    <main class="auth-container">
+        <div class="auth-info">
+            <h1>The Future of Secure Banking</h1>
+            <p>VALMAX Bank runs on a private, high-speed blockchain to offer you services that are secure, transparent, and always available.</p>
+            <h2>What We Provide:</h2>
+            <ul class="services-list">
+                <li>
+                    <i class="fas fa-user-plus"></i>
+                    <div>
+                        <h3>Create & Manage Accounts</h3>
+                        <p>Instantly create, update, and manage your financial accounts.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-exchange-alt"></i>
+                    <div>
+                        <h3>Instant Transactions</h3>
+                        <p>Deposit, withdraw, and transfer funds in real-time, 24/7.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-link"></i>
+                    <div>
+                        <h3>Full Transparency</h3>
+                        <p>View the entire immutable history of all transactions on the blockchain.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h3>Total Security</h3>
+                        <p>Sleep well knowing your assets are protected by cutting-edge cryptography.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div id="login-form-container">
+                <h2>Login to Your Account</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-id">User ID</label>
+                        <input type="number" id="login-id" name="id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-username">Username</label>
+                        <input type="text" id="login-username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" required>
+                    </div>
+                    <button type="submit" class="button-primary">Login</button>
+                </form>
+                <div class="auth-toggle">
+                    Don't have an account? <a href="#" id="show-register">Register</a>
+                </div>
+            </div>
+
+            <div id="register-form-container" class="hidden">
+                <h2>Create Your Account</h2>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="reg-id">User ID (Number)</label>
+                        <input type="number" id="reg-id" name="id" required>
+                        <div class="validation-error" id="id-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-username">Username</label>
+                        <input type="text" id="reg-username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">Password</label>
+                        <input type="password" id="reg-password" name="password" required>
+                        <div class="validation-error" id="password-error"></div>
+                    </div>
+                    <button type="submit" class="button-primary">Register</button>
+                </form>
+                <div class="auth-toggle">
+                    Already have an account? <a href="#" id="show-login">Login</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="auth-message" class="message"></div>
+</div>
+
+<div id="dashboard-view" class="dashboard-layout hidden">
+
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h2>VALMAX BANK</h2>
+        </div>
+        <ul class="sidebar-nav">
+            <li><button id="btn-create-account" class="nav-button"><i class="fas fa-user-plus"></i> Create Account</button></li>
+            <li><button id="btn-deposit" class="nav-button"><i class="fas fa-arrow-down"></i> Deposit</button></li>
+            <li><button id="btn-withdraw" class="nav-button"><i class="fas fa-arrow-up"></i> Withdraw</button></li>
+            <li><button id="btn-transfer" class="nav-button"><i class="fas fa-exchange-alt"></i> Transfer</button></li>
+            <li><button id="btn-display-accounts" class="nav-button"><i class="fas fa-users"></i> Display Accounts</button></li>
+            <li><button id="btn-update-account" class="nav-button"><i class="fas fa-user-edit"></i> Update Account</button></li>
+            <li><button id="btn-delete-account" class="nav-button"><i class="fas fa-user-minus"></i> Delete Account</button></li>
+            <li><button id="btn-view-account" class="nav-button"><i class="fas fa-user-check"></i> View Account</button></li>
+            <li><button id="btn-display-blockchain" class="nav-button"><i class="fas fa-link"></i> Display Blockchain</button></li>
+            <li><button id="btn-validate-chain" class="nav-button"><i class="fas fa-check-circle"></i> Validate Blockchain</button></li>
+        </ul>
+        <div class="sidebar-footer">
+            <button id="btn-logout" class="nav-button"><i class="fas fa-sign-out-alt"></i> Save & Exit</button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div id="widget-system-log" class="card widget hidden">
+            <h2><i class="fas fa-terminal"></i> System Log</h2>
+            <pre id="display-area">Welcome! Select an action.</pre>
+        </div>
+        <div id="widget-create-account" class="card widget hidden">
+            <h2><i class="fas fa-user-plus"></i> Create Account</h2>
+            <form id="create-account-form" class="form-module">
+                <div class="form-group"><label for="create-id">Account ID</label><input type="number" id="create-id" name="id" required></div>
+                <div class="form-group"><label for="create-name">Holder Name</label><input type="text" id="create-name" name="name" required></div>
+                <div class="form-group"><label for="create-phno">Phone</label><input type="text" id="create-phno" name="phno" required></div>
+                <div class="form-group"><label for="create-balance">Initial Balance</label><input type="number" id="create-balance" name="balance" step="0.01" required></div>
+                <button type="submit" class="button-primary">Create Account</button>
+            </form>
+        </div>
+        <div id="widget-deposit" class="card widget hidden">
+            <h2><i class="fas fa-arrow-down"></i> Deposit</h2>
+            <form id="deposit-form" class="form-module">
+                <div class="form-group"><label for="dep-id">Account ID</label><input type="number" id="dep-id" name="id" required></div>
+                <div class="form-group"><label for="dep-amount">Amount</label><input type="number" id="dep-amount" name="amount" step="0.01" required></div>
+                <button type="submit" class="button-primary">Deposit</button>
+            </form>
+        </div>
+        <div id="widget-withdraw" class="card widget hidden">
+            <h2><i class="fas fa-arrow-up"></i> Withdraw</h2>
+            <form id="withdraw-form" class="form-module">
+                <div class="form-group"><label for="with-id">Account ID</label><input type="number" id="with-id" name="id" required></div>
+                <div class="form-group"><label for="with-amount">Amount</label><input type="number" id="with-amount" name="amount" step="0.01" required></div>
+                <button type="submit" class="button-primary">Withdraw</button>
+            </form>
+        </div>
+        <div id="widget-transfer" class="card widget hidden">
+            <h2><i class="fas fa-exchange-alt"></i> Transfer</h2>
+            <form id="transfer-form" class="form-module">
+                <div class="form-group"><label for="trans-fromID">From Account ID</label><input type="number" id="trans-fromID" name="fromID" required></div>
+                <div class="form-group"><label for="trans-toID">To Account ID</label><input type="number" id="trans-toID" name="toID" required></div>
+                <div class="form-group"><label for="trans-amount">Amount</label><input type="number" id="trans-amount" name="amount" step="0.01" required></div>
+                <button type="submit" class="button-primary">Transfer</button>
+            </form>
+        </div>
+        <div id="widget-update-account" class="card widget hidden">
+            <h2><i class="fas fa-user-edit"></i> Update Account</h2>
+            <form id="update-account-form" class="form-module">
+                <div class="form-group"><label for="update-id">Account ID</label><input type="number" id="update-id" name="id" required></div>
+                <div class="form-group"><label for="update-name">New Name (Optional)</label><input type="text" id="update-name" name="name"></div>
+                <div class="form-group"><label for="update-phno">New Phone (Optional)</label><input type="text" id="update-phno" name="phno"></div>
+                <button type="submit" class="button-primary">Update Account</button>
+            </form>
+        </div>
+        <div id="widget-delete-account" class="card widget hidden">
+            <h2><i class="fas fa-user-minus"></i> Delete Account</h2>
+            <form id="delete-account-form" class="form-module">
+                <div class="form-group"><label for="delete-id">Account ID</label><input type="number" id="delete-id" name="id" required></div>
+                <button type="submit" class="button-primary">Delete Account</button>
+            </form>
+        </div>
+        <div id="widget-view-account" class="card widget hidden">
+            <h2><i class="fas fa-user-check"></i> View Account</h2>
+            <form id="view-account-form" class="form-module">
+                <div class="form-group"><label for="view-id">Account ID</label><input type="number" id="view-id" name="id" required></div>
+                <button type="submit" class="button-primary">View Details</button>
+            </form>
+        </div>
+    </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

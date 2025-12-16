@@ -1,0 +1,351 @@
+/* ---
+   1. COLOR PALETTE & GLOBAL VARS
+--- */
+:root {
+    --bg-dark: #121212;
+    --bg-card: #1E1E1E;
+    --bg-sidebar: #191919;
+    --accent-green: #3DFF7F;
+    --accent-green-hover: #30C864;
+    --text-light: #F1F1F1;
+    --text-secondary: #AAAAAA;
+    --border-color: #333333;
+    --radius: 12px;
+    --shadow: rgba(0, 0, 0, 0.2);
+    --success: #3DFF7F;
+    --danger: #FF6B6B;
+}
+
+/* ---
+   2. GLOBAL LAYOUT & TYPOGRAPHY
+--- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---
+   3. AUTH VIEW (Splash Page)
+--- */
+#auth-view {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.95)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
+    background-size: cover;
+    background-position: center;
+}
+.auth-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+.logo i {
+    color: var(--accent-green);
+    margin-right: 0.75rem;
+}
+
+.auth-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* "What We Provide" Section */
+.auth-info {
+    padding-right: 2rem;
+}
+.auth-info h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--accent-green), var(--text-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+}
+.auth-info p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+.auth-info h2 {
+    font-size: 1.5rem;
+    color: var(--accent-green);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+.services-list {
+    list-style: none;
+    padding: 0;
+}
+.services-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+.services-list li i {
+    font-size: 1.5rem;
+    color: var(--accent-green);
+    margin-right: 1.5rem;
+    margin-top: 5px;
+    width: 30px;
+    text-align: center;
+}
+.services-list li h3 {
+    margin: 0 0 5px 0;
+    color: var(--text-light);
+}
+.services-list li p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Auth Card */
+.auth-container .card {
+    max-width: 450px;
+    background: rgba(30, 30, 30, 0.75);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+}
+
+.auth-toggle {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-secondary);
+}
+.auth-toggle a {
+    color: var(--accent-green);
+    text-decoration: none;
+    font-weight: 600;
+}
+.auth-toggle a:hover {
+    text-decoration: underline;
+}
+
+.message {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--success);
+}
+.message.error {
+    color: var(--danger);
+}
+
+/* ---
+   4. DASHBOARD LAYOUT
+--- */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+}
+
+/* ---
+   5. SIDEBAR
+--- */
+#sidebar {
+    width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+.sidebar-header h2 {
+    margin: 0 0 2rem 0;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-light);
+}
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+.nav-button {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    color: var(--text-secondary);
+    transition: background-color 0.2s, color 0.2s;
+}
+.nav-button i {
+    width: 30px;
+    margin-right: 0.75rem;
+}
+.nav-button:hover, .nav-button.active {
+    background-color: var(--border-color);
+    color: var(--text-light);
+}
+.sidebar-footer {
+    margin-top: 2rem;
+}
+.sidebar-footer .nav-button {
+    background-color: rgba(255, 107, 107, 0.1);
+    color: var(--danger);
+}
+.sidebar-footer .nav-button:hover {
+    background-color: var(--danger);
+    color: var(--bg-dark);
+}
+
+/* ---
+   6. MAIN CONTENT (WIDGET AREA)
+--- */
+#main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+.widget {
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+}
+
+/* ---
+   7. CARD & WIDGET STYLING
+--- */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+.card h2 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    font-weight: 600;
+}
+.card h2 i {
+    color: var(--accent-green);
+    margin-right: 0.75rem;
+}
+
+/* ---
+   8. FORM & BUTTON STYLING
+--- */
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(61, 255, 127, 0.3);
+}
+
+.validation-error {
+    color: var(--danger);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 5px;
+    min-height: 1em;
+}
+
+button.button-primary {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    background-color: var(--accent-green);
+    color: var(--bg-dark);
+    transition: background-color 0.2s;
+}
+button.button-primary:hover {
+    background-color: var(--accent-green-hover);
+}
+
+/* ---
+   9. SYSTEM LOG
+--- */
+#display-area {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    font-family: "Menlo", "Courier New", Courier, monospace;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    min-height: 400px;
+    color: var(--text-secondary);
+}
+
+/* ---
+   10. RESPONSIVE MOBILE
+--- */
+@media (max-width: 900px) {
+    .auth-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+    #sidebar {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* ------------------------------------------------
+   🚀 FIX FOR LOGIN SCROLL BUG
+------------------------------------------------ */
+#auth-view.hidden,
+#dashboard-view.hidden {
+    display: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}

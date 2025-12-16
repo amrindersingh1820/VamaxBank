@@ -1,0 +1,4 @@
+/Users/amrindersingh/CLionProjects/Amrinder/Blockchain/cmake-build-debug/CMakeFiles/c_backend.dir
+/Users/amrindersingh/CLionProjects/Amrinder/Blockchain/cmake-build-debug/CMakeFiles/web_server.dir
+/Users/amrindersingh/CLionProjects/Amrinder/Blockchain/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/amrindersingh/CLionProjects/Amrinder/Blockchain/cmake-build-debug/CMakeFiles/rebuild_cache.dir
